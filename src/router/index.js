@@ -15,6 +15,7 @@ const VerificationResponse = () => import('@/views/auth/verificationResponse');
 // // const UpdatePassword = () => import("@/views/auth/UpdatePassword");
 // // const UpdateProfile = () => import("@/views/auth/UpdateProfile");
 const UserProfile = () => import("@/views/auth/UserProfile");
+const NewProject = () => import("@/components/NewProject");
 
 Vue.use(Router);
 //export default
@@ -26,6 +27,12 @@ const router = new Router({
       path: "/login",
       component: Login,
       name: "Login",
+      beforeEnter: AuthMiddleware.guest,
+    },
+    {
+      path: "/newproject",
+      component: NewProject,
+      name: "NewProject",
       beforeEnter: AuthMiddleware.guest,
     },
     {

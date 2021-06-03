@@ -5,7 +5,7 @@
         <el-col :span="6">
           <div>
             <vue-draggable-resizable
-              :draggable="false"
+              :draggable="true"
               v-for="(field, index) of fieldsData"
               :key="index"
               :w="field.width"
@@ -193,16 +193,16 @@ export default {
         height: 100,
         x: 100,
         y: this.y,
-        text: text
+        text: text  
       };
       this.fieldsData.push(data);
       this.paragraphText = "";
     },
     onResize(x, y, width, height) {
-      this.width = width;
-      this.height = height;
       this.x = x;
       this.y = y;
+      this.width = width;
+      this.height = height;
     },
     onDrag(x, y) {
       this.x = x;
